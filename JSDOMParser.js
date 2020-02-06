@@ -932,8 +932,8 @@
       // After a '=', we should see a '"' for the attribute value
       var c = this.nextChar();
       if (c !== '"' && c !== "'") {
-        this.error("Error reading attribute " + name + ", expecting '\"'");
-        return;
+        // this.error("Error reading attribute " + name + ", expecting '\"'");
+        // return;
       }
 
       // Read the attribute value (and consume the matching quote)
@@ -992,8 +992,8 @@
         closed = true;
         c = this.nextChar();
         if (c !== ">") {
-          this.error("expected '>' to close " + tag);
-          return false;
+          // this.error("expected '>' to close " + tag);
+          // return false;
         }
       }
 
@@ -1089,8 +1089,8 @@
       if (this.match("![CDATA[")) {
         var endChar = this.html.indexOf("]]>", this.currentChar);
         if (endChar === -1) {
-          this.error("unclosed CDATA section");
-          return null;
+          // this.error("unclosed CDATA section");
+          // return null;
         }
         textNode = new Text();
         textNode.textContent = this.html.substring(this.currentChar, endChar);
@@ -1131,8 +1131,8 @@
         this.readChildren(node);
         var closingTag = "</" + node._matchingTag + ">";
         if (!this.match(closingTag)) {
-          this.error("expected '" + closingTag + "' and got " + this.html.substr(this.currentChar, closingTag.length));
-          return null;
+          // this.error("expected '" + closingTag + "' and got " + this.html.substr(this.currentChar, closingTag.length));
+          // return null;
         }
       }
 
